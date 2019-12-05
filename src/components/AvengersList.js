@@ -34,18 +34,18 @@ const AvengersList = props => {
 }
 
 function HeroDetails({ hero }) {
-    const { title, director, metascore, stars } = hero;
+    const { name,superpowers } = hero;
     return (
 
         <div className="movie-card">
-            <h2>{}</h2>
-            <div className="movie-director">
+            <h2>{name}</h2>
+            {/* <div className="movie-director">
                 Director: <em>{}</em>
+            </div> */}
+            <div className="hero-powers">
+                Superpowers: <strong>{superpowers}</strong>
             </div>
-            <div className="movie-metascore">
-                Metascore: <strong>{}</strong>
-            </div>
-            <h3>Actors</h3>
+            {/* <h3>Actors</h3> */}
 
             {/* {stars.map(star => (
                 <div key={} className="movie-star">
