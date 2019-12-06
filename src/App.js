@@ -17,7 +17,6 @@ function App() {
       <header className="App-header">
       <BrowserRouter>
           <Link to='/avengers'>AvengersList</Link>
-
           <Route path='/avengers'component={AvengersList}/>
        </BrowserRouter>
       </header>
