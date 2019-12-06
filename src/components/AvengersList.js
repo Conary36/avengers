@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import '../App.css';
-import axios from 'axios';
+// import axios from 'axios';
 import {avengers} from './Data';
 
 
@@ -35,19 +35,17 @@ const AvengersList = props => {
 }
 
 function HeroDetails({ hero }) {
-    const { name,superpowers } = hero;
+    const { name,nickname,img } = hero;
     return (
 
         <div className="movie-card">
             <h2>{name}</h2>
-            {/* <div className="movie-director">
-                Director: <em>{}</em>
-            </div> */}
-            <div className="hero-powers">
-                Superpowers: <strong>{superpowers}</strong>
+            <div className="movie-director">
+                Nickname: <em>{nickname}</em>
             </div>
-            {/* <h3>Actors</h3> */}
-
+            <div className="hero-img">
+                Pic: <strong>{img}</strong>
+            </div>
             {/* {stars.map(star => (
                 <div key={} className="movie-star">
                     {}
