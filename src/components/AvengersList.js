@@ -1,13 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import '../App.css';
-// import axios from 'axios';
+import React from 'react';
+// import { BrowserRouter, Route, Link } from 'react-router-dom';
+// import '../App.css';
+// // import axios from 'axios';
 import {avengers} from './Data';
+import PropTypes from 'prop-types';
 
 
-const AvengersList = props => {
-    const [heros, setHeros] = useState([])
-    useEffect(()=>{
+function AvengersList (props){
+    // const [heros, setHeros] = useState([])
+    // useEffect(()=>{
     //     const getAvengers = ()=>{
     // axios
     //     .get('https://www.marvel.com/characters')
@@ -20,40 +21,57 @@ const AvengersList = props => {
     //     })
     // }
     //     getAvengers();
-        setHeros(avengers);
-    }, []);
+        // setHeros(avengers);
+    // }, []);
+
 
     return (
-        <div className="hero-list">
-            {heros.map(hero => (
-                <Link to={`/heros/${hero.id}`}>
-                    <HeroDetails key={hero.id} hero={hero} />
-                </Link>
+        <div className="characters-list-wrapper">
+            {props.avengersList.map(avenger => (
+                <div className="character-card" key={avengers.id}>
+                    <img src={avengers.thumbnail} alt={avengers.name} />
+                    <h3
+                        onClick={() => props.history.push(`/avengers/${avengers.id}/info`)}
+                    >
+                        {avengers.name}
+                    </h3>
+                    <p>({avengers.nickname})</p>
+                </div>
+                // <Link to={`/heros/${hero.id}`}>
+                //     <HeroDetails key={hero.id} hero={hero} />
+                // </Link>
             ))}
         </div>
     );
 }
+AvengersList.propTypes = {
+    avengersList: PropTypes.array,
+    history: PropTypes.shape({
+        push: PropTypes.func
+    })
+};
 
-function HeroDetails({ hero }) {
-    const { name,nickname,img } = hero;
-    return (
 
-        <div className="movie-card">
-            <h2>{name}</h2>
-            <div className="movie-director">
-                Nickname: <em>{nickname}</em>
-            </div>
-            <div className="hero-img">
-                Pic: <strong>{img}</strong>
-            </div>
-            {/* {stars.map(star => (
-                <div key={} className="movie-star">
-                    {}
-                </div>
-            ))} */}
-        </div>
+// function HeroDetails({ hero }) {
+//     const { name,nickname,img } = hero;
+//     return (
 
-    );
-}
+//         <div className="movie-card">
+//             <h2>{name}</h2>
+//             <div className="movie-director">
+//                 Nickname: <em>{nickname}</em>
+//             </div>
+//             <div className="hero-img">
+//                 Pic: <strong>{img}</strong>
+//             </div>
+//             {/* {stars.map(star => (
+//                 <div key={} className="movie-star">
+//                     {}
+//                 </div>
+//             ))} */}
+//         </div>
+
+//     );
+// }
 
 export default AvengersList;
