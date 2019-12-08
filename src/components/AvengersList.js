@@ -2,7 +2,7 @@ import React from 'react';
 // import { BrowserRouter, Route, Link } from 'react-router-dom';
 // import '../App.css';
 // // import axios from 'axios';
-import {avengers} from './Data';
+// import {avengers} from './data';
 import PropTypes from 'prop-types';
 
 
@@ -27,7 +27,7 @@ function AvengersList (props){
 
     return (
         <div className="characters-list-wrapper">
-            {props.avengersList.map(avenger => (
+            {props.avengersList.map(avengers => (
                 <div className="character-card" key={avengers.id}>
                     <img src={avengers.thumbnail} alt={avengers.name} />
                     <h3

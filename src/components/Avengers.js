@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { Route, Link } from 'react-router-dom';
-import AvengersList from "./AvengersList";
 import PropTypes from 'prop-types';
 import AvengerInfo from './AvengerInfo';
 import AvengerMovies from './AvengerMovies';
@@ -11,7 +10,6 @@ import AvengerMovies from './AvengerMovies';
 
 function Avenger(props) {
     console.log(props);
-    const avengersList = [];
     const avenger = props.avengersList.find(
         avenger => avenger.id === parseInt(props.match.params.avengerId, 10)
     );

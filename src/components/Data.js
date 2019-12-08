@@ -1,6 +1,6 @@
 
  
- export const avengers = [
+ const avengers = [
     {
         id: 1,
         name: 'Iron Man',
@@ -148,3 +148,5 @@
         movies: ['Avengers: Infinity War', 'Doctor Strange']
     }
 ];
+
+export default avengers;

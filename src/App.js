@@ -4,14 +4,14 @@ import './App.css';
 import HomeAvenge from './components/Home';
 import AvengersList from './components/AvengersList';
 import Avengers from "./components/Avengers";
+import avengers from './components/data';
 
 
 
-function App() {
 
-
-  return (
+  
     function App() {
+
       return (
         <div className="App">
           <ul className="navbar">
@@ -31,20 +31,20 @@ function App() {
             exact
             path="/avengers"
             render={props => (
-              <AvengersList {...props} avengersList={Avengers} />
+              <AvengersList {...props} avengersList={avengers} />
             )}
           />
           <Route
             path="/avengers/:avengerId"
             render={props => (
-              <Avengers {...props} avengersList={Avengers} /> // spread in props --> same as "match={props.match} location={props.location} history={props.history}"
+              <Avengers {...props} avengersList={avengers} /> // spread in props --> same as "match={props.match} location={props.location} history={props.history}"
             )}
           />
         </div>
       );
     }
   
-  );
-}
+  
+
 
 export default App;
