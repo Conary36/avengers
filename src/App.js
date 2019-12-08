@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route, NavLink} from 'react-router-dom'
 import './App.css';
+import HomeAvenge from './components/Home';
+import AvengersList from './components/AvengersList';
+import Avengers from "./components/Avengers";
+import avengers from './components/data';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+
+
+  
+    function App() {
+
+      return (
+        <div className="App">
+          <ul className="navbar">
+            <li>
+              <NavLink  to="/" activeClassName="activeNavButton">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/avengers" activeClassName="activeNavButton">
+                Avengers
+              </NavLink>
+            </li>
+          </ul>
+          <Route  path="/" component={HomeAvenge} />
+          <Route
+            exact
+            path="/avengers"
+            render={props => (
+              <AvengersList {...props} avengersList={avengers} />
+            )}
+          />
+          <Route
+            path="/avengers/:avengerId"
+            render={props => (
+              <Avengers {...props} avengersList={avengers} /> // spread in props --> same as "match={props.match} location={props.location} history={props.history}"
+            )}
+          />
+        </div>
+      );
+    }
+  
+  
+
 
 export default App;
