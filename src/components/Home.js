@@ -11,21 +11,25 @@ function About(props) {
 function Contact(props) {
   return <h1>Contact Component</h1>;
 }
+
 function HomeAvenge(){
-    
 
-    return(
+    return (
+      <nav>
+        <div>
+          <Link to="/">Home</Link>
+        </div>
+        <div>
+          <Link to="/about">About</Link>
+        </div>
+        <div>
+          <Link to="/contact">Contact</Link>
+        </div>
 
-        <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/about'>About</Link>
-            <Link to='/contact'>Contact</Link>
-
-            <Route exact path='/' component={Home} />
-            <Route path='/about' component={About} />
-            <Route path='/contact' component={Contact} />
-            
-        </nav>
-    )
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+      </nav>
+    );
 }
 export default HomeAvenge;

@@ -16,7 +16,7 @@ import avengers from './components/data';
         <div className="App">
           <ul className="navbar">
             <li>
-              <NavLink exact to="/" activeClassName="activeNavButton">
+              <NavLink  to="/" activeClassName="activeNavButton">
                 Home
               </NavLink>
             </li>
@@ -26,7 +26,7 @@ import avengers from './components/data';
               </NavLink>
             </li>
           </ul>
-          <Route exact path="/" component={HomeAvenge} />
+          <Route  path="/" component={HomeAvenge} />
           <Route
             exact
             path="/avengers"
